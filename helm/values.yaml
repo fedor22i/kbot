@@ -6,10 +6,11 @@ replicaCount: 1
 
 image:
   repository: fedor22i
-  tag: "v1.0.5-ed3fd19"
+  tag: "v1.0.7-aec4886"
+  arch: amd64
 
 secret:
-  name: kbot
-  tokenKey: token
-  tokenName: TELE_TOKEN
+  env: TELE_TOKEN
+  key: TELE_TOKEN
+  name: tele-token
 
