@@ -22,6 +22,7 @@ jobs:
       - name: GitHub login
         uses: docker/login-action@v3
         with:
+          egistry: ghcr.io
           username: ${{ vars.GIT_USERNAME }}
           password: ${{ secrets.GIT_TOKEN }}
 
