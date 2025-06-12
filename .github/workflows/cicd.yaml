@@ -60,7 +60,7 @@ jobs:
       - name: Install ArgoCD
         run: make install-argocd
 
-      - name: Expose ArgoCD (port-forward for CI)
-        run: make port-forward-argocd
+      - name: ArgoCD
+        run: kubectl apply -f argocd-app.yaml -n argocd
 
       
