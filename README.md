@@ -12,7 +12,7 @@ Processes messages according to their type and content.
 
 Currently responds to the command "/start hello"
 
-
+```
                       ┌────────────────────────────┐
                       │        GitHub Push         │
                       │     (to branch develop)    │
@@ -55,3 +55,4 @@ Currently responds to the command "/start hello"
                                                │ `kubectl apply ...`         │
                                                │ (argocd-app.yaml)           │
                                                └─────────────────────────────┘
+```
