@@ -5,8 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: fedor22i
+  registry: "ghcr.io"
+  repository: "fedor22i/kbot"
   tag: "v1.0.7-aec4886"
+  os: linux
   arch: amd64
 
 secret:

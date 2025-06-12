@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: telegram-bot
+  namespace: argocd
+spec:
+  destination:
+    namespace: bot
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/fedor22i/kbot
+    targetRevision: develop
+    path: helm/bot
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
