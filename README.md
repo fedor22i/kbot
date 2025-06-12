@@ -11,3 +11,48 @@ Added these functions to the methods of the telebot.Bot object. \
 Processes messages according to their type and content.
 
 Currently responds to the command "/start hello"
+
+```
+                      ┌────────────────────────────┐
+                      │        GitHub Push         │
+                      │     (to branch develop)    │
+                      └────────────┬───────────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────────┐
+                    │             CI               │
+                    │     (Continuous Integration) │
+                    └──────────────────────────────┘
+                                  │
+     ┌────────────────────────────┼────────────────────────────┐
+     ▼                            ▼                            ▼
+┌─────────────┐        ┌────────────────────┐        ┌────────────────────┐
+│   Checkout  │        │      Run tests     │        │   Docker login to  │
+│ (pull repo) │        │   `make test`      │        │     ghcr.io        │
+└─────────────┘        └────────────────────┘        └────────────────────┘
+                                                            │
+                                                            ▼
+                                                ┌───────────────────────┐
+                                                │  Build & Push Docker  │
+                                                │ `make image push`     │
+                                                └───────────────────────┘
+                                                            │
+                                                            ▼
+                                        ┌────────────────────────────────┐
+                                        │              CD                │
+                                        │   (Continuous Deployment)      │
+                                        └────────────────────────────────┘
+                                                            │
+                      ┌────────────────────────────┬────────┼────────────┬──────────────────────────┐
+                      ▼                            ▼        ▼            ▼                          ▼
+             ┌─────────────┐        ┌────────────────────┐   │   ┌────────────────────┐   ┌────────────────────┐
+             │   Checkout  │        │  Install k3d CLI   │   │   │  Create k3d cluster│   │  Install ArgoCD    │
+             └─────────────┘        │ via curl script    │   │   └────────────────────┘   └────────────────────┘
+                                    └────────────────────┘   │
+                                                             ▼
+                                               ┌─────────────────────────────┐
+                                               │ Deploy via ArgoCD           │
+                                               │ `kubectl apply ...`         │
+                                               │ (argocd-app.yaml)           │
+                                               └─────────────────────────────┘
+```
