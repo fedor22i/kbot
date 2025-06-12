@@ -6,7 +6,7 @@ replicaCount: 1
 image:
   registry: "ghcr.io"
   repository: "fedor22i/kbot"
-  tag: "v1.0.7-aec4886-72d9cac"
+  tag: "v1.0.7-aec4886-3e08221"
   os: linux
   arch: amd64
 secret:
