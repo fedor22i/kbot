@@ -61,4 +61,17 @@ jobs:
           git commit -am "update version $VERSION"
           git push
 
+      - name: Install k3d
+        run: |
+          curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+
+      - name: Create k3d cluster
+        run: make create-cluster
+
+      - name: Install ArgoCD
+        run: make install-argocd
+
+      - name: Expose ArgoCD (port-forward for CI)
+        run: make port-forward-argocd
+
       
