@@ -3,16 +3,13 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-
 image:
   registry: "ghcr.io"
   repository: "fedor22i/kbot"
-  tag: "v1.0.7-aec4886"
+  tag: "v1.0.7-aec4886-dca55df"
   os: linux
   arch: amd64
-
 secret:
   env: TELE_TOKEN
   key: TELE_TOKEN
   name: tele-token
-
