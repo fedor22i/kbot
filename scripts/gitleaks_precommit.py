@@ -48,16 +48,17 @@ def download_and_extract(archive_url, filename):
             with zipfile.ZipFile(archive_path, "r") as zip_ref:
                 zip_ref.extractall(tmpdir)
         else:
-            print("❌ Невідомий тип архіву.")
+            print("Невідомий тип архіву.")
             sys.exit(1)
 
-        # знайти бінарник gitleaks
         for root, _, files in os.walk(tmpdir):
             for file in files:
-                if file == "gitleaks" or file == "gitleaks.exe":
-                    return os.path.join(root, file)
+                if file == "gitleaks" or (file.startswith("gitleaks") and os.access(os.path.join(root, file), os.X_OK)):
+                    temp_bin = os.path.join(tempfile.gettempdir(), "gitleaks_bin")
+                    shutil.copy(os.path.join(root, file), temp_bin)
+                    return temp_bin
 
-        print("❌ gitleaks не знайдено в архіві.")
+        print("gitleaks не знайдено в архіві.")
         sys.exit(1)
 
 def install_gitleaks():
@@ -84,7 +85,7 @@ def install_gitleaks():
 
 def run_gitleaks():
     try:
-        subprocess.run(["gitleaks", "detect", "--staged", "--no-banner"], check=True)
+        subprocess.run(["gitleaks", "detect", "--no-banner"], check=True)
     except subprocess.CalledProcessError:
         print("Gitleaks виявив потенційні секрети! Коміт відхилено.")
         sys.exit(1)
