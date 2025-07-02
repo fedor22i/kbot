@@ -36,7 +36,7 @@ agent any
         stage("build") {
             steps {
             echo 'BUILD EXECUTION STARTED'
-                sh sh "make build TARGETOS=${params.OS} TARGETARCH=${params.ARCH}"
+            sh "make build TARGETOS=${params.OS} TARGETARCH=${params.ARCH}"
             }
         }
         
