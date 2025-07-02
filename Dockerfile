@@ -1,5 +1,11 @@
 FROM golang:1.24 AS builder
 
+ARG TARGETOS
+ARG TARGETARCH
+
+ENV GOOS=$TARGETOS
+ENV GOARCH=$TARGETARCH
+
 WORKDIR /go/src/app
 COPY . .
 RUN make build
