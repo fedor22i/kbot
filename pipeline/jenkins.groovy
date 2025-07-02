@@ -36,7 +36,7 @@ agent any
         stage("build") {
             steps {
             echo 'BUILD EXECUTION STARTED'
-                sh "make build OS=${params.OS} ARCH=${params.ARCH}"
+                sh sh "make build TARGETOS=${params.OS} TARGETARCH=${params.ARCH}"
             }
         }
         
@@ -44,7 +44,7 @@ agent any
             steps {
                 script {
                     echo 'BUILD EXECUTION STARTED'
-                    sh "make image OS=${params.OS} ARCH=${params.ARCH}"
+                    sh "make image TARGETOS=${params.OS} TARGETARCH=${params.ARCH}"
                 }
             }
         }
