@@ -53,7 +53,7 @@ agent any
             steps {
                 script {
                     docker.withRegistry( '', 'dockerhub') {
-                        sh 'make push'
+                        sh "make push TARGETOS=${params.OS} TARGETARCH=${params.ARCH}"
                     }
                 }
             }
