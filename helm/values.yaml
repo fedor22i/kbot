@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: fedor22i
-  tag: "v1.0.7-aec4886-424cd31"
+  tag: "v1.0.7-aec4886-62ebb71"
   arch: amd64
 secret:
   env: TELE_TOKEN
