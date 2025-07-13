@@ -56,3 +56,13 @@ Currently responds to the command "/start hello"
                                                │ (argocd-app.yaml)           │
                                                └─────────────────────────────┘
 ```
+
+##  Для розгортання моніторингового стеку за допомогою docker-compose потрібно:
+https://github.com/den-vasyliev/kbot/blob/opentelemetry/otel/docker-compose.yaml 
+
+```
+docker-compose -f otel/docker-compose.yaml up
+```
+Відео демо роботи GRAFANA:
+
+[![Відео демо роботи GRAFANA](https://i9.ytimg.com/vi_webp/hEB8lL_MDQM/mq3.webp?sqp=COSU0MMG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEwgXChlMA8=&rs=AOn4CLAIUN4O9ki5umJOTvp2ZlU46Ye19A)](https://youtu.be/hEB8lL_MDQM)
