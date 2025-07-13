@@ -29,6 +29,7 @@ services:
     ports:
       - "9090:9090"
   
+  
   # FluentBit
   fluentbit:
     image: fluent/fluent-bit:latest
